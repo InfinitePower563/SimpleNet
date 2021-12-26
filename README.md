@@ -19,6 +19,8 @@ And include this in your dependency declaration:
 <dependency>
     <groupId>io.github.infinitepower563</groupId>
     <artifactId>SimpleNet</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
+## Documentation
+Documentation can be found [here](https://infinitepower563.github.io/SimpleNet/javadoc).
