@@ -1,14 +1,11 @@
 package io.github.infinitepower563.simplenet.example;
 
-import io.github.infinitepower563.simplenet.jnet.Client;
+import io.github.infinitepower563.simplenet.jnet.JNetHttpRequest;
 import io.github.infinitepower563.simplenet.jnet.Packet;
 
 public class JNetClient {
     public static void main(String[] args) throws Exception {
-        Client client = new Client("localhost",8000);
-
-        Packet p = new Packet(null, "Hello world!");
-
-        client.send(p);
+        JNetHttpRequest req = new JNetHttpRequest("localhost", "Hello", new String[] {"Content-Type: text/plain"}, 8000);
+        System.out.println(req.sendRequest());
     }
 }

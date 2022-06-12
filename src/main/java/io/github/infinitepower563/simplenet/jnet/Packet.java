@@ -15,7 +15,7 @@ public class Packet {
                 sb.append(";");
             }
         }
-        sb.append(":::").append(data);
+        sb.append(":::").append(data).append("\n");
         return sb.toString();
     }
     public Packet(String data) {
