@@ -1,18 +1,12 @@
 package io.github.infinitepower563.simplenet.jnet;
 
-import io.github.infinitepower563.simplenet.exception.HttpException;
-
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Server {
-    private final int port;
-    public Server(int port) {
-        this.port = port;
-    }
+public record Server(int port) {
+
     public void run() {
         try {
             ServerSocket ss = new ServerSocket(port);

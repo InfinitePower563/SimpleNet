@@ -3,20 +3,9 @@ package io.github.infinitepower563.simplenet.jnet;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Map;
 import java.util.Scanner;
 
-public class JNetHttpRequest {
-    private final String target, data;
-    private final String[] headers;
-    private final int port;
-
-    public JNetHttpRequest(String target, String data, String[] headers, int port) {
-        this.target = target;
-        this.data = data;
-        this.headers = headers;
-        this.port = port;
-    }
+public record JNetHttpRequest(String target, String data, String[] headers, int port) {
 
     public String sendRequest() throws IOException {
         Packet p = new Packet(headers, data);

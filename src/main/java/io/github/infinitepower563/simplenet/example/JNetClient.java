@@ -1,7 +1,6 @@
 package io.github.infinitepower563.simplenet.example;
 
 import io.github.infinitepower563.simplenet.jnet.JNetHttpRequest;
-import io.github.infinitepower563.simplenet.jnet.Packet;
 
 public class JNetClient {
     public static void main(String[] args) throws Exception {
