@@ -73,6 +73,7 @@ public class HttpRequest {
                 request.setDoOutput(true);
                 DataOutputStream dout = new DataOutputStream(request.getOutputStream());
                 dout.writeBytes(ParameterStringBuilder.getParamsString(parameters));
+                dout.writeUTF("==sn-close-str==");
                 dout.flush();
                 dout.close();
             }
