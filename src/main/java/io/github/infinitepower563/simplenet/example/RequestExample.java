@@ -16,7 +16,7 @@ public class RequestExample {
         - To http://localhost:8000/test
         - With no input parameters
          */
-        HttpRequest req = new HttpRequest(RequestType.GET,"http://localhost:8000/test",null);
+        HttpRequest req = new HttpRequest(RequestType.GET,"http://localhost:800",null);
         try {
             //We have no headers, set requestHeaders to 0, and we can pass literally anything to hKey and hVal
             System.out.println(req.performRequest(0,null,null));
