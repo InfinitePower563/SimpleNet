@@ -66,6 +66,9 @@ public class HttpRequest {
         if (target == null) throw new HttpException("An error occurred while performing an HTTP request.", new NullPointerException("Field \"target\" is null"));
         try {
             HttpURLConnection request = (HttpURLConnection) new URL(target).openConnection();
+            request.setRequestMethod(type.str());
+            request.connect();
+
             for (int i = 0; i < requestHeaders; i++) {
                 request.setRequestProperty(hKey[i], hVal[i]);
             }
@@ -73,10 +76,11 @@ public class HttpRequest {
                 request.setDoOutput(true);
                 DataOutputStream dout = new DataOutputStream(request.getOutputStream());
                 dout.writeBytes(ParameterStringBuilder.getParamsString(parameters));
+                dout.writeUTF("==sn-close-str==");
                 dout.flush();
                 dout.close();
             }
-            request.setRequestMethod(type.str());
+
             int status = request.getResponseCode();
             InputStreamReader istream;
             if (status >= 200 && status < 300) {
