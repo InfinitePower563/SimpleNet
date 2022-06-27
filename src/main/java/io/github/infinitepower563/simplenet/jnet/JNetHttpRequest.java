@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public record JNetHttpRequest(String target, String data, String[] headers, int port) {
+public record JNetHttpRequest(String target, int port) {
 
-    public String sendRequest() throws IOException {
-        Packet p = new Packet(headers, data);
-
+    public String sendRequest(Packet p) throws IOException {
         Socket socket = new Socket(target, port);
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
         Scanner in = new Scanner(socket.getInputStream());

@@ -19,8 +19,11 @@ public class Packet {
         return sb.toString();
     }
     public Packet(String data) {
-        String[] split = data.split(":::");
-        this.headers = split[0].split(";");
-        this.data = split[1];
+        if (!data.contains(":::") || !data.contains(";")) {
+        } else {
+            String[] split = data.split(":::");
+            this.headers = split[0].split(";");
+            this.data = split[1];
+        }
     }
 }
